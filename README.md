@@ -1,4 +1,4 @@
-# ansible-easy-vpn
+# setup-rpi-ansible
 
 A simple script/Ansible playbook that sets up an Rpi4 for server use
 
