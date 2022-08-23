@@ -1,0 +1,54 @@
+#!/usr/bin/env ansible-playbook
+
+- hosts: all
+  become: true
+
+  vars_files:
+    - custom.yml
+    - secret.yml
+
+  handlers:
+    - import_tasks: handlers/main.yml
+
+  pre_tasks:
+    - set_fact:
+
+  roles:
+    - role: system
+      tags:
+        - system
+
+    - role: docker
+      tags:
+        - docker
+
+#    - role: fail2ban
+#      when: enable_fail2ban | default(False)
+#      tags:
+#        - fail2ban
+#
+#    - role: ufw
+#      when: enable_ufw | default(False)
+#      tags:
+#        - ufw
+#
+#    - role: authelia
+#      tags:
+#        - authelia
+#
+#    - role: bunkerweb
+#      tags:
+#        - bunkerweb
+#
+#    - role: wireguard
+#      tags:
+#        - wireguard
+#
+#    - role: chriswayg.msmtp-mailer
+#      when: email_password is defined
+#      tags:
+#        - msmtp
+
+    - role: ssh
+      tags:
+        - ssh
