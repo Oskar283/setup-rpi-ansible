@@ -19,7 +19,7 @@ wget https://raw.githubusercontent.com/Oskar283/setup-rpi-ansible/master/bootstr
 Edit the variable files, install dependencies for the new user and re-run the playbook:
 
 ```
-cd $HOME/ansible-easy-vpn
+cd $HOME/setup-rpi-ansible
 ansible-galaxy install -r requirements.yml
 nano custom.yml
 ansible-vault edit secret.yml

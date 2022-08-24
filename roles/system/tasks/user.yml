@@ -42,12 +42,12 @@
 
 - name: Check if the Ansible playbook is copied to the new user directory
   stat:
-    path: "/home/{{ username }}/ansible-easy-vpn"
+    path: "/home/{{ username }}/setup-rpi-ansible"
   register: playbook_copied
 
 - name: Copy the Ansible playbook to the new user
   copy:
-    src: "/{{ lookup('env','HOME') }}/ansible-easy-vpn"
+    src: "/{{ lookup('env','HOME') }}/setup-rpi-ansible"
     dest: "/home/{{ username }}"
     owner: "{{ username }}"
     decrypt: no
