@@ -47,15 +47,6 @@ export DEBIAN_FRONTEND=noninteractive
 $SUDO apt update -y;
 $SUDO apt install -y ansible
 
-# Open up port 80
-port_open=$($SUDO firewall-cmd --list-all | grep ports);
-if [[ "$port_open" != *"80/tcp" ]]; then
-    $SUDO firewall-cmd --permanent --zone=public --add-port=80/tcp
-    $SUDO firewall-cmd --reload
-else
-    echo "Port 80 already open";
-fi
-
 check_root "-H"
 
 export DEBIAN_FRONTEND=
